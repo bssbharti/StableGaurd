@@ -1,0 +1,6 @@
+framework module Pods_StablegaurdTests {
+  umbrella header "Pods-StablegaurdTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
