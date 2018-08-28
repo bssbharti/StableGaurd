@@ -286,16 +286,19 @@ open class JKTextField : UITextField {
     }
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         
- 
+       
         let rect = super.textRect(forBounds: bounds)
+       
         var newRect = CGRect(x: rect.origin.x + padding.width, y: rect.origin.y,
             width: rect.size.width - 2*padding.width, height: rect.size.height)
-
+        
         if !floatingPlaceholderEnabled {
             return newRect
         }
 
         if !text!.isEmpty {
+            
+           
             var dTop = ceil(floatingLabel.font.lineHeight + floatingLabelBottomMargin)
             dTop = min(dTop, maxTopInset())
          //   let dTop = floatingLabel.font.lineHeight + floatingLabelBottomMargin
@@ -319,19 +322,18 @@ open class JKTextField : UITextField {
     private func setFloatingLabelForTextAligment() {
         let textRect = self.textRect(forBounds: bounds)
         var originX = textRect.origin.x
-        
+      
         
         switch textAlignment {
         case .center:
            
-        // originX += textRect.size.width/2 - floatingLabel.bounds.width/2
             originX = textRect.origin.x + (textRect.size.width * 0.5) - floatingLabel.frame.size.width
         case .right:
           
          //originX += textRect.size.width - floatingLabel.bounds.width
             originX = textRect.origin.x + textRect.size.width - floatingLabel.bounds.width
         default:
-            
+             originX += 30
             break
         }
         

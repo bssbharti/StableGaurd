@@ -10,7 +10,7 @@ import UIKit
 
 class ConfirmSignUpVC: UIViewController {
 
-    @IBOutlet weak var usernameTF: JKTextField!
+    @IBOutlet weak var emailTF: JKTextField!
     @IBOutlet weak var confirmationCodeTF: JKTextField!
     
     override func viewDidLoad() {
@@ -26,9 +26,12 @@ class ConfirmSignUpVC: UIViewController {
     @IBAction func onBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    @IBAction func onConfirm(_ sender: Any) {
+    @IBAction func onConfirm(_ sender: Any)
+    {
     }
-    @IBAction func onResend(_ sender: Any) {
+    @IBAction func onResend(_ sender: Any)
+    {
+        
     }
     
     

@@ -8,6 +8,7 @@
 
 import UIKit
 import AWSCognitoIdentityProvider
+import IQKeyboardManagerSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,8 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    var rememberDeviceCompletionSource: AWSTaskCompletionSource<NSNumber>?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-       
+   
         setNavigationBar()
+        awsPoolSetup()
         return true
     }
 
@@ -66,7 +68,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "back")
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -220), for:.default)
         
-        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
     }
     func setupLogin(){
      let navigationController =   mainStoryboard.instantiateViewController(withIdentifier: StoryBoardIdentity.KLoginNavigationVC) as! UINavigationController
@@ -74,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     func setupHome(){
-        let navigationController =   mainStoryboard.instantiateViewController(withIdentifier: StoryBoardIdentity.kHomeNavigationVC) as! UINavigationController
+        let navigationController =   homeStoryboard.instantiateViewController(withIdentifier: StoryBoardIdentity.kHomeNavigationVC) as! UINavigationController
         self.window?.rootViewController = navigationController
         
     }

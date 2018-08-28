@@ -17,7 +17,7 @@ class AWSManager:NSObject{
     
     struct AWSUserPoolKeys {
         
-        static let kCognitoIdentityUserPoolResion : AWSRegionType = .EUWest1
+        static let kCognitoIdentityUserPoolResion : AWSRegionType = .USEast2
         static let KCognitoIdentityClientId = "7ltb130v7sg2a9c2nqvdi3qkep"
         static let kCognitoIdentityClientSecret = "6a28afkp83oe8sk0iknlmt0codnnnm3jp26jia59i0162ofpvei"
         static let KCognitoIdentityPoolId = "us-east-2_6nB8OENMa"
@@ -109,9 +109,9 @@ class AWSManager:NSObject{
              alertMessage = FieldValidation.kPassMissMatch
         }else{
            
-           
+           ServerManager.shared.showHud()
             self.userPool?.signUp(email, password: password, userAttributes: nil, validationData: nil).continueWith {  (task) -> Any? in
-                
+                ServerManager.shared.hideHud()
                 if let err = task.error as NSError?{
                     OnFailure(err)
                 }else if let result = task.result {

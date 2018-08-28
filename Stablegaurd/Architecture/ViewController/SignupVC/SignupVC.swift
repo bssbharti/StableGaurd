@@ -44,7 +44,9 @@ class SignupVC: UIViewController {
         
         AWSManager.shared.awsSignup(email: email, password: password, confirmPassword: confPassword, OnSuccess: { (isSuccess, response) in
             
-        }, OnFailure: <#T##AWSManagerFailureBlock##AWSManagerFailureBlock##(Error) -> Void#>)
+        }, OnFailure: {(error) in
+            
+            })
     }
  
     // MARK: - Navigation
@@ -58,13 +60,4 @@ class SignupVC: UIViewController {
    
 
 }
-extension SignupVC:UIPopoverPresentationControllerDelegate{
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        if Platform.isPhone {
-             return .none
-        }else{
-             return .popover
-        }
-       
-    }
-}
+

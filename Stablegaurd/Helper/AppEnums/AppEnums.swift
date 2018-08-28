@@ -15,4 +15,15 @@ enum UIUserInterfaceIdiom : Int
     case Pad
 }
 
-
+enum SettingsMenuOptions:Int {
+    case AddNewUser = 0
+    case BlockForPrivacy  
+    var description:String{
+        switch self {
+        case .AddNewUser:
+            return "add new user"
+        default:
+            return "Block for Privacy"
+        }
+    }
+}

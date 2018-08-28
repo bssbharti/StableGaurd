@@ -10,7 +10,7 @@ import UIKit
 
 class ForgotPasswordVC: UIViewController {
 
-    @IBOutlet weak var usernameTF: JKTextField!
+    @IBOutlet weak var emailTF: JKTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 

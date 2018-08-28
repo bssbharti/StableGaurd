@@ -9,6 +9,8 @@
 import UIKit
 import AVKit
 class CustomCell: JKTableViewCell {
+    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization codes
@@ -90,4 +92,9 @@ class VideoCell: CustomCell {
             initNewPlayerItem()
         }
     }
+    
+}
+
+class FooterCell: CustomCell {
+        @IBOutlet weak var addNewBtn: JKButton!
 }

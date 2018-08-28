@@ -99,6 +99,7 @@ struct SegueIdentity {
     static let kConfirmSignUpSegue            = "ConfirmSignUpSegue"
     static let kForgotPasswordSegue           = "ForgotPasswordSegue"
     static let KConfirmForgotPasswordSegue    = "ConfirmForgotPasswordSegue"
+    static let kAddNewCameraSegue             = "AddNewCameraSegue"
 
     
 }
@@ -122,19 +123,9 @@ struct TBCellIdentity {
     static let kLoadMoreCell = "LoadMoreCell"
     static let kCustomerCell = "CustomerCell"
     static let kCountryPickerCell = "CountryPickerCell"
+    static let kAddNewCameraFooterCell = "AddNewCameraCell"
 }
 
-struct CVCellIdentity {
-    static let kProductHeaderCell    = "ProductHeaderCell"
-    static let kLoadMoreGridCell     = "LoadMoreGridCell"
-    static let kProductGridCell      = "ProductGridCell"
-    static let kSubProductGridCell   = "SubProductGridCell"
-    static let kMediaCell            = "MediaCell"
-    static let kMediaGirdCell        = "MediaGirdCell"
- 
-   
-    
-}
 
 struct FieldValidation {
     
@@ -160,7 +151,7 @@ struct FieldValidation {
     static let kCurrentPasswordEmpty = "Please enter current password."
     static let kPassMinLimit         = "Your password should be minimum of 8 character."
     static let kPassMaxLimit         = "Your password must be less then 20 character."
-    static let kValidPass           =  """
+    static let kValidPass            =  """
                                            • Password must contain  numbers .
                                            • Password must contain uppercase letters
                                            • Password must have at least one @#$ sumbol

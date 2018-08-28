@@ -26,6 +26,7 @@
 		44628F3321303CDF008C5277 /* JKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44628F2521303CDF008C5277 /* JKTextField.swift */; };
 		44628F3421303CDF008C5277 /* JKTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44628F2721303CDF008C5277 /* JKTextView.swift */; };
 		44628F3E21305A98008C5277 /* AWSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44628F3D21305A98008C5277 /* AWSManager.swift */; };
+		44E1FD1321357287001BC22C /* AddNewCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E1FD1221357287001BC22C /* AddNewCameraVC.swift */; };
 		44F40A432133C5170075BCC5 /* AppStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F40A422133C5170075BCC5 /* AppStruct.swift */; };
 		44F40A462133C51D0075BCC5 /* AppEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F40A452133C51C0075BCC5 /* AppEnums.swift */; };
 		44F40A522133C5290075BCC5 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F40A482133C5290075BCC5 /* OpenSans-Bold.ttf */; };
@@ -93,6 +94,7 @@
 		44628F2521303CDF008C5277 /* JKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKTextField.swift; sourceTree = "<group>"; };
 		44628F2721303CDF008C5277 /* JKTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKTextView.swift; sourceTree = "<group>"; };
 		44628F3D21305A98008C5277 /* AWSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSManager.swift; sourceTree = "<group>"; };
+		44E1FD1221357287001BC22C /* AddNewCameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCameraVC.swift; sourceTree = "<group>"; };
 		44F40A422133C5170075BCC5 /* AppStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStruct.swift; sourceTree = "<group>"; };
 		44F40A452133C51C0075BCC5 /* AppEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEnums.swift; sourceTree = "<group>"; };
 		44F40A482133C5290075BCC5 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -322,6 +324,14 @@
 			path = AWSManager;
 			sourceTree = "<group>";
 		};
+		44E1FD112135726A001BC22C /* AddNewCameraVC */ = {
+			isa = PBXGroup;
+			children = (
+				44E1FD1221357287001BC22C /* AddNewCameraVC.swift */,
+			);
+			path = AddNewCameraVC;
+			sourceTree = "<group>";
+		};
 		44F40A412133C5170075BCC5 /* AppStruct */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,6 +435,7 @@
 		44F40A732133C8910075BCC5 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				44E1FD112135726A001BC22C /* AddNewCameraVC */,
 				44F40A902133DDC60075BCC5 /* SettingsMenuVC */,
 				44F40A842133D9210075BCC5 /* ForgotPasswordVC */,
 				44F40A812133D90A0075BCC5 /* SignupVC */,
@@ -731,6 +742,7 @@
 				44628F3321303CDF008C5277 /* JKTextField.swift in Sources */,
 				44628EE721302225008C5277 /* AppDelegate.swift in Sources */,
 				44F40A832133D9190075BCC5 /* SignupVC.swift in Sources */,
+				44E1FD1321357287001BC22C /* AddNewCameraVC.swift in Sources */,
 				44628F2C21303CDF008C5277 /* JKLabel.swift in Sources */,
 				44628F2A21303CDF008C5277 /* JKColor.swift in Sources */,
 				44628F0D21302B09008C5277 /* CustomCell.swift in Sources */,

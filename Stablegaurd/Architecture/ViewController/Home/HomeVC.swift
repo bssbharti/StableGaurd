@@ -10,45 +10,76 @@ import UIKit
 
 let videoUrl = URL(string: "https://v.cdn.vine.co/r/videos/AA3C120C521177175800441692160_38f2cbd1ffb.1.5.13763579289575020226.mp4")!
 class HomeVC: UIViewController {
-
     
+    @IBOutlet weak var settingBtn: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-
+    fileprivate var records = [Any]()
     // MARK: view lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.isScrollEnabled = false
     }
-   
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-       
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    //MARK: - onRefresh -
     @IBAction func onRefresh(_ sender: Any) {
+        
     }
-    
+    //MARK: - onSupportCall -
     @IBAction func onSupportCall(_ sender: Any) {
+        let busPhone = ""
+        if let url = URL(string: "tel://\(busPhone)"), UIApplication.shared.canOpenURL(url) {
+            
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+            else{
+                UIApplication.shared.openURL(url)
+            }
+            
+        }
     }
     
-    
+    // MARK: - Navigation -
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentity.kSettingsMenuSegue {
             
             
-//            let popOverController  = segue.destination as! SettingsMenuVC
-//            popOverController.modalPresentationStyle = .popover
-//            popOverController.popoverPresentationController!.delegate = self
-//            popOverController.popoverPresentationController?.sourceView = countryCodeTF
-//            popOverController.popoverPresentationController?.sourceRect = countryCodeTF.bounds
+            let controller  = segue.destination as! SettingsMenuVC
+            if let popoverController = controller.popoverPresentationController {
+                popoverController.barButtonItem = settingBtn
+                popoverController.delegate = self
+            }
+            controller.onSelectMenuOption { (menuOption:SettingsMenuOptions) in
+                
+            }
+            
+        }else if segue.identifier == SegueIdentity.kAddNewCameraSegue{
+            let controller  = segue.destination as! AddNewCameraVC
+            controller.OnAddCameraAuthication { (isAuthcate) in
+                
+            }
         }
     }
 }
-
+extension HomeVC:UIPopoverPresentationControllerDelegate{
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        if Platform.isPhone {
+            return .none
+        }else{
+            return .popover
+        }
+        
+    }
+}
 extension HomeVC:UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // updateVisibility(in: scrollView);
@@ -90,25 +121,40 @@ extension HomeVC:UITableViewDataSource,UITableViewDelegate{
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return  records.count + 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell  = tableView.dequeueReusableCell(withIdentifier: TBCellIdentity.kVideoCell, for: indexPath) as! VideoCell
-        cell.videoItemUrl = videoUrl
-        return cell
+        if records.count > indexPath.row {
+            let cell  = tableView.dequeueReusableCell(withIdentifier: TBCellIdentity.kVideoCell, for: indexPath) as! VideoCell
+            cell.videoItemUrl = videoUrl
+            return cell
+        }
+        else{
+            let footerCell = tableView.dequeueReusableCell(withIdentifier: TBCellIdentity.kAddNewCameraFooterCell , for: indexPath) as! FooterCell
+            
+            return footerCell
+        }
+        
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 300
+        return 300
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let temp  = cell as! VideoCell
-        temp.isPlay = true
+        if indexPath.row < 9 {
+            //let temp  = cell as! VideoCell
+            // temp.isPlay = true
+        }
     }
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let temp  = cell as! VideoCell
-        temp.isPlay = false
+        if indexPath.row < 9 {
+            let temp  = cell as! VideoCell
+            if temp.isPlay {
+                temp.isPlay = false
+            }
+        }
     }
+    
 }
